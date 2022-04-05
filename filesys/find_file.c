@@ -55,3 +55,45 @@ static int dopath(const char *dirpath)
 */
 
 
+#include "apue.h"
+#include <dirent.h>
+#define MAX 30
+
+int main(int argc, char argv[]) {
+        if(argc!=2)
+        loop(argv[0], 0);
+        exit(0);
+}
+
+
+
+void dopath(char* pathname) {
+        struct stat statbuf;
+        struct dirent* dirp;
+        DIR* dp;
+        if (lstat(pathname, &statbuf) < 0) {
+                err_sys("lstat error");
+        }
+        if ((dp = opendir(pathname)) == NULL)
+                err_sys("can't opendir");
+        while ((dirp = readdir(dp)) != NULL) {
+                if (strcmp(dirp->d_name, ".") == 0 ||
+                        strcmp(dirp->d_name, "..") == 0)
+                        continue;
+                printf("%s%s/\n",pathname,dirp->d_name);
+        }
+        chdir("dirp->d_name");
+        closedir(dp);
+        return;
+}
+
+void loop(char* n, int x) {
+        char* path;
+        for (x = 0; x < MAX; x++) {
+                dopath(path);
+                printf("%s", n);
+                return;
+        }
+}
+
+
