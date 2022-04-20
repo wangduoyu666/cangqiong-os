@@ -54,4 +54,54 @@ static int dopath(const char *dirpath)
 }
 */
 
+2022.4.20
+/*
+#include "apue.h"
+#include <dirent.h>
+#include <stdbool.h>
+
+static int dopath(char*);
+
+int main(int argc, char argv[])
+{
+    const char* path;
+    if (argc != 2)
+        path = "/etc";
+    else
+        path = argv[1];
+    printf("Directory scan of %s\n", path);
+    dopath(path);
+    return 0;
+}
+
+static int dopath(char* dirpath)
+{
+    struct dirent* dirp;
+    DIR* dp;
+    if ((dp = opendir(dirpath)) == NULL) {
+        err_sys("can't open:%s\n", dirpath);
+        return;
+    }
+    while ((dirp = readdir(dp)) != NULL) {
+        printf("%s/%s\n", dirpath, dirp->d_name);
+        }
+    return 0;
+}
+
+// void loop(int v)
+//{
+//    char *p;
+//    if(p=S_ISDIR(statbuf->st_mode)<0)
+//    v=0;
+//    else
+//    for(v=1; v<strlen(p); v++)
+//    {
+//       dopath(p);
+//     }
+//     return;
+//}
+
+*/
+// only one level, but I will keep trying
+
 
