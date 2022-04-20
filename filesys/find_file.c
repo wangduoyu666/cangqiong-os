@@ -85,6 +85,7 @@ static int dopath(char* dirpath)
     while ((dirp = readdir(dp)) != NULL) {
         printf("%s/%s\n", dirpath, dirp->d_name);
         }
+    closedir(dp);
     return 0;
 }
 
