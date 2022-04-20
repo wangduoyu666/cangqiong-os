@@ -91,6 +91,7 @@ static int dopath(char* dirpath)
 // void loop(int v)
 //{
 //    char *p;
+//    struct stat *statbuf;
 //    if(p=S_ISDIR(statbuf->st_mode)<0)
 //    v=0;
 //    else
