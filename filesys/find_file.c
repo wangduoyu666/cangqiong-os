@@ -106,4 +106,11 @@ static int dopath(char* dirpath)
 */
 // only one level, but I will keep trying
 
-
+2022.4.22
+    /*
+    My file management, especially the file directory loop,
+    I would layer it, one loop one layer, 
+    encapsulating layer into a function that I could call directly.
+    Because the file system is so important that we need usually to add, delete, and change it
+    I think layering is the best solution.
+    */
